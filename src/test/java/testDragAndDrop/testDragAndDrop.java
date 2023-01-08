@@ -9,9 +9,7 @@ public class testDragAndDrop {
     @Test
     void testDragAndDrop () {
         open("https://the-internet.herokuapp.com/drag_and_drop");
-        sleep (150000);
-        actions().moveToElement($("[id=column-a]")).clickAndHold().moveByOffset(150, 300).release().perform();
-        sleep (15000);
-
+        $("[id=column-a]").dragAndDropTo($("[id=column-b]"));
+        $("[id=column-a]").shouldHave(text("B"));
     }
 }
