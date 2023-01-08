@@ -13,6 +13,5 @@ public class testGitHubSolutions {
         $(byText("Solutions")).hover();
         $(byText("Enterprise")).click();
         $("div.col-9-max").shouldHave(text("Build like the best"));
-                sleep (1500);
     }
 }
