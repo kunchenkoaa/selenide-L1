@@ -1,28 +1,23 @@
 package practiceFormTest;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
-import java.io.File;
-
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byClassName;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-
-public class practiceFormTest {
+public class PracticeFormTest {
 
     @BeforeAll
     static void beforeAll(){
+        Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
     }
-
     @Test
-    void practiceFormTest () {
-        open("https://demoqa.com/automation-practice-form");
+    void TestDemoQA () {
+        open("/automation-practice-form");
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
         $(".main-header").shouldHave(text("Practice Form"));
@@ -44,9 +39,10 @@ public class practiceFormTest {
         $("#city").click();
         $("#stateCity-wrapper").$(byText("Agra")).click();
         $("#submit").click();
-
-        sleep (1000);
-
+        $(".modal-dialog").should(visible);
+        $(".modal-title").shouldHave(text("Thanks for submitting the form"));
+        $(".table-responsive").shouldHave(text("John"),text("Doe"),text("test@email.com"),text("0123456789"), text("Male"),
+                text("01 December,2000"),text("Music"),text("File.png"),text("Test address 1111"),text("Uttar Pradesh Agra"));
 
     }
 
