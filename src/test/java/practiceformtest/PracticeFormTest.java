@@ -1,4 +1,4 @@
-package practiceFormTest;
+package practiceformtest;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
@@ -16,7 +16,7 @@ public class PracticeFormTest {
         Configuration.browserSize = "1920x1080";
     }
     @Test
-    void TestDemoQA () {
+    void testDemoQA() {
         open("/automation-practice-form");
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");

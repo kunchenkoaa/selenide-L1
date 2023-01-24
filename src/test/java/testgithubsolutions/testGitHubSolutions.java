@@ -1,4 +1,4 @@
-package testGitHubSolutions;
+package testgithubsolutions;
 
 import org.junit.jupiter.api.Test;
 
